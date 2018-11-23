@@ -1,0 +1,13 @@
+const Discord = require("discord.js");
+
+module.exports.run = async (bot, message, args) => {
+  let userEmbed = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.addField("👤 Username", message.author, true)
+.addField("🌍 Server Join Place", message.member.joinAt, true)
+.addField("📜 Roles", (message.author.username, message.member.roles.map(role => role.name).join(", ", false)))
+message.channel.send(userEmbed);
+}
+  module.exports.help = {
+    name: "userinfo"
+  }
